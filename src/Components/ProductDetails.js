@@ -1,11 +1,18 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { ADD2CART} from "../redux/actions/action";
+import { useDispatch } from 'react-redux';
 
 const ProductDetails = () => {
-    let product
-    const getData = useSelector((state)=> state.cartReducer.singleproduct)
-    console.log(getData[0])
-    product = getData[0]
+    const getData = useSelector((state)=> state.prodDetails.singleproduct)
+    console.log(getData)
+    let product = getData
+
+    const dispatch = useDispatch();
+    const sendData =(e)=>{
+    dispatch(ADD2CART(e))}
+
+
   return (
     <>
     <div className='app'>
@@ -17,12 +24,14 @@ const ProductDetails = () => {
         </div>
         <div className='productDetails'>
         <h2>Details</h2>
-        <p><strong>Product</strong></p>
+        <br/>
          <ul>
-            <li><strong>Description</strong>{product.description}</li>
-            <li><strong>Title</strong>{product.title}</li>
-            <li><strong>Price</strong>{product.price}</li>
+            <li><strong>Title:- </strong>{product.title}</li>
+            <li><strong>Description:-  </strong>{product.description}</li>
+            
+            <li><strong>Price:- $ </strong>{product.price}</li>
         </ul>
+        <button className="button1"onClick={()=>{ sendData(product)}}>Add to cart</button>
         </div>
       </section>
     </>

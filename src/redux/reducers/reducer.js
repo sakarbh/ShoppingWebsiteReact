@@ -1,6 +1,5 @@
 const INITIAL_STATE = {
-  carts: [],
-  singleproduct: [],
+  carts: []
 };
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
@@ -20,12 +19,7 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
           carts: [...state.carts, action.payload],
         };
       }
-      break
 
-    case "GET_PRODUCT":
-      return {
-        singleproduct: [action.payload],
-      };
     case "REMOVE_PRODUCT":
       let index2 = state.carts.findIndex((e) => e.id === action.payload.id);
       if (index2 >= 0 && state.carts[index2].count > 1) {
@@ -42,8 +36,9 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
           carts: newData,
         };
       }
-      break
-    default:
+      default:
       return state;
   }
 };
+
+

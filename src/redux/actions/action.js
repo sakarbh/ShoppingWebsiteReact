@@ -12,3 +12,10 @@ export const REMOVEPRODUCT = (product) =>{
         payload: product
     }
 }
+
+export const GETPRODUCT = (product) =>{
+    return{
+        type: 'GET_PRODUCT',
+        payload: product
+    }
+}

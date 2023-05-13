@@ -1,13 +1,24 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { ADD2CART } from "../redux/actions/action";
+import { ADD2CART, GETPRODUCT} from "../redux/actions/action";
+import { useNavigate } from "react-router-dom";
 
 
 const ProductCard = ({product}) =>{
 
+   const navigate = useNavigate();
+   const navigateToSingleProduct =()=>{
+    navigate('/singleproductdetails')
+
+  }
+
     const dispatch = useDispatch();
     const sendData =(e)=>{
     dispatch(ADD2CART(e))}
+
+    const sendProductData =(e)=>{
+    dispatch(GETPRODUCT(e))
+    navigateToSingleProduct()}
 
     return(
         <div className="movie">
@@ -16,7 +27,7 @@ const ProductCard = ({product}) =>{
                     </div>
 
                     <div>
-                        <img src={product.image !=='N/A' ? product.image : "htttps.//via.placeholder.com/400"} alt ={product.description} />
+                        <img onClick={()=>{ sendProductData(product)}} src={product.image !=='N/A' ? product.image : "htttps.//via.placeholder.com/400"} alt ={product.description} />
                     </div>
                     <div>
                         <span>{product.title}</span>

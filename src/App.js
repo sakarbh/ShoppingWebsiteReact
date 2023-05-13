@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css"
-import {BrowserRouter, Routes , Route} from "react-router-dom";
+import {BrowserRouter, Routes , Route, } from "react-router-dom";
 import Home from "./Pages/Home"
 import Cart from "./Pages/Cart"
 import ProductDetails from "./Components/ProductDetails"
@@ -14,7 +14,7 @@ const App = () =>{
 <Route path = "/" element ={<Home/>}/>
 <Route path = "/cart" element ={<Cart/>}/>
 
-<Route path = "/productsdetails/id" element ={<ProductDetails/>}/>
+<Route path = "/singleproductdetails" element ={<ProductDetails/>}/>
 
 <Route path = "/products" element ={<Products/>}/>
 
